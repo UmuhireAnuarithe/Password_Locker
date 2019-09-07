@@ -91,6 +91,18 @@ class TestCredentials(unittest.TestCase):
         '''
         Credentials.credentials_list = []
         Account.users_list = []
+    
+
+    def test_display_credentials(self):
+        '''
+        Test to check if the display_credentials method, displays the correct credentials.
+        '''
+        self.new_credential.save_credentials()
+        Facebook = Credentials('Jay', 'Facebook', 'jade', '777')
+        Facebook.save_credentials()
+        self.assertEqual(len(Credentials.display_credentials(Facebook.user_name)), 1)
+
+
 
 if __name__ == '__main__':
     unittest.main()
