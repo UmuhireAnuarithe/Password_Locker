@@ -85,6 +85,12 @@ class TestCredentials(unittest.TestCase):
         twitter.save_credentials()
         self.assertEqual(len(Credentials.credentials_list), 2)
 
+    def tearDown(self):
+        '''
+        Function to clear the credentials list after every test
+        '''
+        Credentials.credentials_list = []
+        Account.users_list = []
 
 if __name__ == '__main__':
     unittest.main()
