@@ -1,3 +1,7 @@
+import random
+import string
+
+
 class Account:
     # class variable
     users_list = []
@@ -52,6 +56,15 @@ class Credentials :
             self.site_name = site_name
             self.account_name = account_name
             self.password = password
+    
+    def generate_password(self,size=6, char=string.ascii_uppercase+string.ascii_lowercase+string.digits):
+            '''
+            Function to generate an 6 character password for a credential
+            '''
+            password_generated = ''.join(random.choice(char)
+                                        for _ in range(size))
+            return password_generated
+
 
     def save_credentials(self):
             '''
@@ -70,3 +83,11 @@ class Credentials :
                 if credential.user_name == user_name:
                     user_credentials_list.append(credential)
             return user_credentials_list
+    @classmethod
+    def find_by_site_name(cls, site_name):
+            '''
+            Method that takes in a site_name and returns a credential that matches that site_name.
+            '''
+            for credential in cls.credentials_list:
+                if credential.site_name == site_name:
+                    return credential

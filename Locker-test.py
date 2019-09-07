@@ -91,7 +91,7 @@ class TestCredentials(unittest.TestCase):
         '''
         Credentials.credentials_list = []
         Account.users_list = []
-    
+
 
     def test_display_credentials(self):
         '''
@@ -102,6 +102,15 @@ class TestCredentials(unittest.TestCase):
         Facebook.save_credentials()
         self.assertEqual(len(Credentials.display_credentials(Facebook.user_name)), 1)
 
+    def test_find_by_site_name(self):
+        '''
+        Test to check if the find_by_site_name method returns the correct credential
+        '''
+        self.new_credential.save_credentials()
+        twitter = Credentials('James', 'Twitter', 'jimmy', '555')
+        twitter.save_credentials()
+        credential_exists = Credentials.find_by_site_name('Twitter')
+        self.assertEqual(credential_exists, twitter)
 
 
 if __name__ == '__main__':
