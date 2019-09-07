@@ -1,5 +1,5 @@
 from Locker import  Account
-
+from Locker import Credentials
 import unittest
 
 class TestAccout(unittest.TestCase):
@@ -40,7 +40,7 @@ class TestCredentials(unittest.TestCase):
     Args:
      unittest.TestCase: helps in creating test cases
     '''
-    def test_check_user(self):
+    def test_check_user_account(self):
         '''
         Function to test whether the login in function check_user works as expected
         '''
@@ -55,6 +55,8 @@ class TestCredentials(unittest.TestCase):
             if user.username == user2.username and user.password == user2.password:
                 current_user = user.username
         return current_user
+        self.assertEqual(current_user, Credentials.check_user_account(user2.password, user2.username))
+
 
 if __name__ == '__main__':
     unittest.main()
