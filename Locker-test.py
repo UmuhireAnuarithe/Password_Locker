@@ -33,6 +33,14 @@ class TestAccout(unittest.TestCase):
         self.new_user.save_user_account()
         self.assertEqual(len(Account.users_list), 1)
 
+    #*******************************************************# credentials
+    class TestCredentials(unittest.TestCase):
+    '''
+    Test class that defines test cases for the credentials class behaviours.
+    Args:
+        unittest.TestCase: helps in creating test cases
+    '''
+
 
 if __name__ == '__main__':
     unittest.main()
