@@ -1,5 +1,5 @@
 class Account:
-
+    # class variable
     users_list = []
 
     def __init__(self, fullname, username, password):
@@ -19,4 +19,11 @@ class Account:
         '''
         Account.users_list.append(self)
 
-    
+    #**********************************************# Credentiaals
+class Credentials :
+    '''
+    Class to create  account credentials, generate passwords and save their information
+    '''
+    # Class Variables
+    credentials_list = []
+    user_credentials_list = []
