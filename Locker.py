@@ -12,3 +12,9 @@ class Account:
         self.fullname = fullname
         self.username = username
         self.password = password
+
+    def save_user_account(self):
+        '''
+        Function to save a newly created account instance
+        '''
+        Account.users_list.append(self)
