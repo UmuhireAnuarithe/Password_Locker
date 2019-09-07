@@ -34,13 +34,27 @@ class TestAccout(unittest.TestCase):
         self.assertEqual(len(Account.users_list), 1)
 
     #*******************************************************# credentials
-    class TestCredentials(unittest.TestCase):
+class TestCredentials(unittest.TestCase):
     '''
     Test class that defines test cases for the credentials class behaviours.
     Args:
-        unittest.TestCase: helps in creating test cases
+     unittest.TestCase: helps in creating test cases
     '''
+    def test_check_user(self):
+        '''
+        Function to test whether the login in function check_user works as expected
+        '''
+        self.new_user = Account('Umuhire','Anuarithe','111')
+        self.new_user.save_user_account()
+        user2 = Account('Tuyishime', 'J.Baptiste', 'mwo')
+        user2.save_user_account()
+        user3 = Account('Tubane', 'Elie', 'Elly')
+        user3.save_user_account()
 
+        for user in Account.users_list:
+            if user.username == user2.username and user.password == user2.password:
+                current_user = user.username
+        return current_user
 
 if __name__ == '__main__':
     unittest.main()

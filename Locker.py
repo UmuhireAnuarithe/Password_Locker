@@ -27,3 +27,15 @@ class Credentials :
     # Class Variables
     credentials_list = []
     user_credentials_list = []
+
+    @classmethod
+    def check_user_account(cls, username, password):
+        '''
+        Method that checks if the name and password entered match entries in the users_list
+        '''
+        current_user = ''
+        for user in Account.users_list:
+            if (user.username == username and user.password == password):
+                current_user = user.username
+
+                return current_user
