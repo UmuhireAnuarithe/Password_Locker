@@ -25,6 +25,13 @@ class TestAccout(unittest.TestCase):
         self.assertEqual(self.new_user.username, 'Anuarithe')
         self.assertEqual(self.new_user.password, '111')
 
+    
+    def test_save_user_account(self):
+        '''
+        Test to check if the new user account info is saved into the users list
+        '''
+        self.new_user.save_user_account()
+        self.assertEqual(len(Account.users_list), 1)
 
 
 if __name__ == '__main__':

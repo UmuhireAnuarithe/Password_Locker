@@ -18,3 +18,5 @@ class Account:
         Function to save a newly created account instance
         '''
         Account.users_list.append(self)
+
+    
