@@ -63,11 +63,11 @@ def copy_credential(site_name):
     '''
     return Credentials.copy_credential(site_name)
 
-def delete_credential(credentials):
-    '''
-    Function to delete a credential
-    '''
-    return Credentials.delete_credential()
+# def delete_credential(credential):
+#     '''
+#     Function to delete a credential
+#     '''
+#     return Credentials.delete_credential()
 
 
 
@@ -107,7 +107,7 @@ def main():
             if user_exists == username:
                 print(" ")
                 print(f'Welcome {fullname}. Please choose an option to continue.')
-                print(' ')
+                # print(' ')
 
                 print(' ')
                 while True:
