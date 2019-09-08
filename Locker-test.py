@@ -102,6 +102,17 @@ class TestCredentials(unittest.TestCase):
         Facebook.save_credentials()
         self.assertEqual(len(Credentials.display_credentials(Facebook.user_name)), 1)
 
+    def test_delete_credential(self):
+        '''
+        test_delete_cred to test if we can remove a credential from our credentials list
+        '''
+        self.new_credential.save_credentials()
+        test_credenntial = Credentials("David","Twitter", "dave", "ddd") # new credential
+        test_credenntial .save_credentials()
+
+        self.new_credential.delete_credential()
+        self.assertEqual(len(Credentials.credentials_list),1)
+
     def test_find_by_site_name(self):
         '''
         Test to check if the find_by_site_name method returns the correct credential
