@@ -134,7 +134,7 @@ def main():
                                 'Enter an option: ').lower().strip()
                             print("-"*100)
                             if psw_choice == 'ep':
-                                print(" password_generated")
+                                print(" ")
                                 password = input(
                                     'Enter your password: ').strip()
                                 break
