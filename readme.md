@@ -20,3 +20,15 @@ Password Locker stores a user's password for their various accounts. It also all
 * Store my existing login credentials.e
 * Generate a password for a new credential/account. 
 * display all credential i already created
+
+## Installation
+
+Clone this using the command below:
+
+`git clone  https://github.com/UmuhireAnuarithe/Password_Locker.git`
+
+Run `cd Password_Locker` in the terminal.
+
+Run `chmod +x run.py` in the terminal.
+
+Run the `./run.py` script on the terminal to open.
