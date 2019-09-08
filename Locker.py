@@ -83,6 +83,15 @@ class Credentials :
                 if credential.user_name == user_name:
                     user_credentials_list.append(credential)
             return user_credentials_list
+
+    def delete_credential(self):
+        '''
+        delete_cred method deletes a saved credential from the cred_list
+        '''
+
+        Credentials.credentials_list.remove(self)
+
+
     @classmethod
     def find_by_site_name(cls, site_name):
             '''
