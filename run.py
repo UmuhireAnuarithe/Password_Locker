@@ -30,7 +30,7 @@ def generate_password():
     '''
     Function to generate a password automatically
     '''
-    password_generate= Credentials.generate_password()
+    password_generate= Credential.generate_password()
     return password_generate
 
 
@@ -160,5 +160,7 @@ def main():
                             print(' ')
                             print("You don't seem to have any credentials saved yet")
                             print(' ')
+
+                            
 if __name__ == '__main__':
     main()
