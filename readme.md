@@ -32,3 +32,8 @@ Run `cd Password_Locker` in the terminal.
 Run `chmod +x run.py` in the terminal.
 
 Run the `./run.py` script on the terminal to open.
+
+## Technologies Used
+
+* Python 3.6
+* Git version Control
