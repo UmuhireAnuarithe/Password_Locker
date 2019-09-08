@@ -21,7 +21,16 @@ Password Locker stores a user's password for their various accounts. It also all
 * Generate a password for a new credential/account. 
 * display all credential i already created
 
+
+# Test Driven Development -TDD
+* Coding
+* Creeating username and password and also login in
+* Testing if username and password is saved
+* checking if  username can be deleted
+* Refactoring
+* Confrimation about testing
 ## Installation
+
 
 Clone this using the command below:
 
