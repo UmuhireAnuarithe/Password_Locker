@@ -63,6 +63,13 @@ def copy_credential(site_name):
     '''
     return Credentials.copy_credential(site_name)
 
+def delete_credential(credentials):
+    '''
+    Function to delete a credential
+    '''
+    return Credentials.delete_credential()
+
+
 
 def main():
     print(' ')
