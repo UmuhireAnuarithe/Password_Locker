@@ -52,7 +52,6 @@ class Credentials :
             '''
 
             # ***** instance variables *****#
-
             self.user_name = user_name
             self.site_name = site_name
             self.account_name = account_name

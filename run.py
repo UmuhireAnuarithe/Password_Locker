@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 from Locker import Account
 from Locker import Credentials
-
+import pyperclip
 
 def create_user(fullname, username, password):
     '''
@@ -57,6 +57,11 @@ def display_credentials(user_name):
     '''
     return Credentials.display_credentials(user_name)
 
+def copy_credential(site_name):
+    '''
+    Function to copy a credentials details to the clipboard
+    '''
+    return Credentials.copy_credential(site_name)
 
 
 def main():
@@ -160,7 +165,17 @@ def main():
                             print(' ')
                             print("You don't seem to have any credentials saved yet")
                             print(' ')
+                             
 
+                    
+                    elif short_code == 'copy':
+                        print(' ')
+                        chosen_site = input(
+                            'Enter the site name for the credential password to copy: ')
+                        copy_credential(chosen_site)
+                        print('')
+                    else:
+                        print('Try again.')
                             
 if __name__ == '__main__':
     main()
