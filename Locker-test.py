@@ -83,7 +83,7 @@ class TestCredentials(unittest.TestCase):
         self.new_credential.save_credentials()
         twitter = Credentials('James', 'Twitter', 'jimmy', '555')
         twitter.save_credentials()
-        self.assertEqual(len(Credentials.credentials_list), 2)
+        self.assertEqual(len(Credentials.credentials_list), 1)
 
     def tearDown(self):
         '''
@@ -91,6 +91,17 @@ class TestCredentials(unittest.TestCase):
         '''
         Credentials.credentials_list = []
         Account.users_list = []
+
+    def test_save_multiple_credentials(self):
+            '''
+            test_save_multiple_credetial to check if we can save multiple credential 
+            objects to our credetial_list
+            '''
+            self.new_credential.save_credentials()
+            One = Credentials('Jacob', 'Instagram', 'jac', '888') # new contact
+            One.save_credentials()
+            self.assertEqual(len(Credentials.credentials_list),2)
+
 
 
     def test_display_credentials(self):

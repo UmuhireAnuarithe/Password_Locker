@@ -58,6 +58,12 @@ def display_credentials(user_name):
     '''
     return Credentials.display_credentials(user_name)
 
+def find_by_site_name(cls, site_name):
+    '''
+    Method that takes in a site_name and returns a credential that matches that site_name.
+    '''    
+    return Credentials.find_by_site_name(site_name)
+
 def copy_credential(site_name):
     '''
     Function to copy a credentials details to the clipboard
@@ -187,26 +193,21 @@ def main():
                     #     print('Try again.')
 
                     elif short_code == 'del':
-                        # session_header(u_name)
-                        print("       Delete Credential")
-                        print("     "+"="*20)
-                        print ('\n')
-
-                        site_name = input("Enter site Name:")
-                        # found_credential = find_by_site_name( site_name)
-                        # if found_credential:
-                        #     print(f"Here are the credentials for {found_credential.(credential.site_name)}:")
-                        found_credential = Credentials.find_by_site_name(credential.site_name)
-                        print(f"User Account: {found_credential.credential_user_name}")
-                        print(f"Password: {found_credential.credential_password}")
-                        if input("\033[1;31;40m Are you sure you want to delete it? (Y/N) \033[0;0m ").upper() == "Y":
-                         delete_credential(found_credential)
-                        print()
-                        print("Press Enter to continue")
-                        input(f" \033[1;32;40m Credentials for {found_credential.credential_site} deleted. \033[0;0m ")
-                    else:
-                            print(f" \033[1;31;40m Credentials Not Found for {site_name}! \033[0;0m ")
+                         print("       Delete Credential")
+                         print("     "+"="*20)
+                         print('\n')
+                         site_name = input("Enter site Name:")
+                         found_credential = find_by_site_name(site_name)
+                         if found_credential:
+                            print(f"Here are the credentials for {found_credential.site_name}:")
+                            print(f"User Account: {found_credential.user_name}")
+                            print(f"Password: {found_credential.password}")
+                         if input("Do you realy want to delete it? (Y/N)").upper() == "Y":
+                            delete_credential(found_credential)
+                            print()
                             print("Press Enter to continue")
-                            input()
+                            input(f"Credentials for {found_credential.cred_app} deleted.")
+
+                   
 if __name__ == '__main__':
     main()
