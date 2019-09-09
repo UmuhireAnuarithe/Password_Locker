@@ -113,7 +113,7 @@ class TestCredentials(unittest.TestCase):
         self.new_credential.delete_credential()
         self.assertEqual(len(Credentials.credentials_list),1)
 
-    def test_find_by_site_name(self):
+    def test_find_by_site(self):
         '''
         Test to check if the find_by_site_name method returns the correct credential
         '''

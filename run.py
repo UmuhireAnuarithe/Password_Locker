@@ -2,6 +2,7 @@
 from Locker import Account
 from Locker import Credentials
 import pyperclip
+import  random
 
 def create_user(fullname, username, password):
     '''
@@ -26,11 +27,11 @@ def confirm_user(username, password):
 
     return cheked_user
 
-def generate_password():
+def generate_password(credential):
     '''
     Function to generate a password automatically
     '''
-    password_generate= Credential.generate_password()
+    password_generate= credential.generate_password()
     return password_generate
 
 
@@ -98,7 +99,7 @@ def main():
           
             print(f'New Account Created for: {fullname} successfully created')
         elif short_code == 'li':
-            print("-"*100)
+            print("-"*40)
             print(' ')
             print('To login, enter your account details:')
             username = input('Enter your user name - ')
@@ -114,7 +115,7 @@ def main():
 
                     print("-"*30)
                     print(
-                        'Use short-codes: \n cc-Create a Credential \n dc-Display Credentials \n copy-Copy Password \n ex-Exit')
+                        'Use short-codes: \n cc-Create a Credential \n dc-Display Credentials \n copy-Copy Password \n del-delete credential \n ex-Exit')
                     short_code = input('Enter a choice: ').lower().strip()
                     print("-"*30)
                     if short_code == 'ex':
@@ -146,7 +147,9 @@ def main():
                                     'Enter your password: ').strip()
                                 break
                             elif psw_choice == 'gp':
-                                password = generate_password()
+                                # password = generate_password()
+                                string="abcdefghijklmnopqrstuvwxyz0123456789"
+                                password=''.join(random.choice(string) for _ in range(8))
                                 break
                             elif psw_choice == 'ex':
                                 break
@@ -177,12 +180,33 @@ def main():
                     
                     elif short_code == 'copy':
                         print(' ')
-                        chosen_site = input(
-                            'Enter the site name for the credential password to copy: ')
+                        chosen_site = input('Enter the site name for the credential password to copy: ')
                         copy_credential(chosen_site)
                         print('')
+                    # else:
+                    #     print('Try again.')
+
+                    elif short_code == 'del':
+                        # session_header(u_name)
+                        print("       Delete Credential")
+                        print("     "+"="*20)
+                        print ('\n')
+
+                        site_name = input("Enter site Name:")
+                        # found_credential = find_by_site_name( site_name)
+                        # if found_credential:
+                        #     print(f"Here are the credentials for {found_credential.(credential.site_name)}:")
+                        found_credential = Credentials.find_by_site_name(credential.site_name)
+                        print(f"User Account: {found_credential.credential_user_name}")
+                        print(f"Password: {found_credential.credential_password}")
+                        if input("\033[1;31;40m Are you sure you want to delete it? (Y/N) \033[0;0m ").upper() == "Y":
+                         delete_credential(found_credential)
+                        print()
+                        print("Press Enter to continue")
+                        input(f" \033[1;32;40m Credentials for {found_credential.credential_site} deleted. \033[0;0m ")
                     else:
-                        print('Try again.')
-                            
+                            print(f" \033[1;31;40m Credentials Not Found for {site_name}! \033[0;0m ")
+                            print("Press Enter to continue")
+                            input()
 if __name__ == '__main__':
     main()
